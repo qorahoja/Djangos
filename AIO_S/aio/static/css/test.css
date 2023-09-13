@@ -1,0 +1,69 @@
+/* .hidden klassi */
+.hidden {
+    display: none;
+}
+
+/* .question klassiga birinchi savol ustiga stiling */
+.question {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f7f7f7;
+}
+
+/* Sarlavha (h2) uchun stiling */
+h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Matn (p) uchun stiling */
+p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Radiobuttonlar (ul li) uchun stiling */
+ul li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+/* "Next" va "Back" tugmalari uchun stiling */
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px; /* Tugma qirraligini o'zgartirish uchun */
+}
+
+/* "Next" tugmasini boklari (disabled) uchun stiling */
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+a {
+             font-size: 1.5em; /* Havolalarni kichikroq qilish */
+             text-decoration: none;
+             color: #0078d4; /* Havola rangi */
+             margin: 0 10px; /* Havolalar o'rtasidagi masofa */
+             padding: 10px 20px; /* Havola qo'shimchalari */
+             background-color: #fff; /* Havola fon rangi */
+             border: 2px solid #0078d4; /* Havola chegaralari */
+             border-radius: 5px; /* Havola radiusi */
+             transition: background-color 0.3s, color 0.3s; /* Animatsiya qo'shish */
+         }
+         a:hover {
+             background-color: #0078d4; /* Havola fon rangi animatsiyalangan xolatda */
+             color: #fff; /* Havola rangi animatsiyalangan xolatda */
+
+
+/* Progress bar (yangi barcha) uchun stiling */
+ #progress-bar {
+            height: 20px; /* Progress bar balandligini o'zgartirish uchun */
+            background-color: #007bff; /* Progress bar fon rangini o'zgartirish uchun */
+            width: 0; /* Progress bar boshlang'ich holati */
+        }

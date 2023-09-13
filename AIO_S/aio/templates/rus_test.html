@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #FF00FF, #000000);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .question {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            background-color: #FF00FF;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        button:hover {
+            background-color: #FF007F;
+        }
+
+        #result-message {
+            font-size: 20px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <body>
+        <div id="question1" class="question">
+            <h2>Первый вопрос</h2>
+            <p>Как вы описали бы себя?</p>
+            <ul>
+                <li><input type="radio" name="q1" value="1">1. Уютный</li>
+                <li><input type="radio" name="q1" value="3">2. Смелый</li>
+                <li><input type="radio" name="q1" value="2">3. Амбициозный</li>
+                <li><input type="radio" name="q1" value="5">4. Интеллигентный</li>
+            </ul>
+            <button id="next1" onclick="nextQuestion(1)" disabled>Далее</button>
+        </div>
+    
+        <div id="question2" class="question hidden">
+            <h2>Второй вопрос</h2>
+            <p>Нравится ли вам танцевать?</p>
+            <ul>
+                <li><input type="radio" name="q2" value="4">1. Абсолютно</li>
+                <li><input type="radio" name="q2" value="1">2. Не очень</li>
+                <li><input type="radio" name="q2" value="0">3. Да</li>
+                <li><input type="radio" name="q2" value="2">4. Нет</li>
+            </ul>
+            <button id="prev2" onclick="prevQuestion(2)">Назад</button>
+            <button id="next2" onclick="nextQuestion(2)" disabled>Далее</button>
+        </div>
+    
+        <div id="question3" class="question hidden">
+            <h2>Третий вопрос</h2>
+            <p>Какое ваше любимое хобби?</p>
+            <ul>
+                <li><input type="radio" name="q3" value="2">1. Изучение языков</li>
+                <li><input type="radio" name="q3" value="1">2. Готовка</li>
+                <li><input type="radio" name="q3" value="4">3. Программирование на компьютере</li>
+                <li><input type="radio" name="q3" value="3">4. Рисование</li>
+            </ul>
+            <button id="prev3" onclick="prevQuestion(3)">Назад</button>
+            <button id="next3" onclick="nextQuestion(3)" disabled>Далее</button>
+        </div>
+    
+        <div id="question4" class="question hidden">
+            <h2>Четвертый вопрос</h2>
+            <p>Чем вы занимаетесь в свободное время?</p>
+            <ul>
+                <li><input type="radio" name="q4" value="1">1. Играю в игры</li>
+                <li><input type="radio" name="q4" value="2">2. Гуляю</li>
+                <li><input type="radio" name="q4" value="4">3. Читаю книги</li>
+                <li><input type="radio" name="q4" value="3">4. Провожу время в интернете</li>
+            </ul>
+            <button id="prev4" onclick="prevQuestion(4)">Назад</button>
+            <button id="next4" onclick="nextQuestion(4)" disabled>Далее</button>
+        </div>
+    
+        <div id="question5" class="question hidden">
+            <h2>Пятый вопрос</h2>
+            <p>Представьте, что вы в групповом обсуждении. В какой группе вы бы присоединились?</p>
+            <ul>
+                <li><input type="radio" name="q5" value="4">1. Маленькая группа</li>
+                <li><input type="radio" name="q5" value="3">2. Группа, обсуждающая интересные темы</li>
+                <li><input type="radio" name="q5" value="1">3. Только с друзьями</li>
+                <li><input type="radio" name="q5" value="0">4. Ни с кем, остался бы в одиночестве</li>
+            </ul>
+            <button id="prev5" onclick="prevQuestion(5)">Назад</button>
+            <button id="next5" onclick="nextQuestion(5)" disabled>Далее</button>
+        </div>
+    
+        <div id="question6" class="question hidden">
+            <h2>Шестой вопрос</h2>
+            <p>Какую часть новостного источника вы предпочитаете читать больше всего?</p>
+            <ul>
+                <li><input type="radio" name="q6" value="3">1. Занимательные новости</li>
+                <li><input type="radio" name="q6" value="4">2. Все последние новости</li>
+                <li><input type="radio" name="q6" value="1">3. Основные новости</li>
+                <li><input type="radio" name="q6" value="0">4. Мне не нравится читать</li>
+            </ul>
+            <button id="prev6" onclick="prevQuestion(6)">Назад</button>
+            <button id="next6" onclick="nextQuestion(6)" disabled>Далее</button>
+        </div>
+    
+        <div id="question7" class="question hidden">
+            <h2>Седьмой вопрос</h2>
+            <p>Какой жанр кино вам нравится больше всего?</p>
+            <ul>
+                <li><input type="radio" name="q7" value="2">1. Детектив</li>
+                <li><input type="radio" name="q7" value="1">2. Комедия</li>
+                <li><input type="radio" name="q7" value="4">3. Документальный</li>
+                <li><input type="radio" name="q7" value="3">4. Мелодрама</li>
+            </ul>
+            <button id="prev7" onclick="prevQuestion(7)">Назад</button>
+            <button id="next7" onclick="nextQuestion(7)" disabled>Далее</button>
+        </div>
+    
+        <div id="question8" class="question hidden">
+            <h2>Восьмой вопрос</h2>
+            <p>Если бы у вас была возможность посещать шоу, в каком шоу вы бы участвовали?</p>
+            <ul>
+                <li><input type="radio" name="q8" value="1">1. Шоу, способствующее развитию навыков</li>
+                <li><input type="radio" name="q8" value="3">2. Шоу, демонстрирующее мои способности</li>
+                <li><input type="radio" name="q8" value="0">3. Шоу, освещающее мои хобби</li>
+                <li><input type="radio" name="q8" value="2">4. Шоу, в котором можно стать известным</li>
+            </ul>
+            <button id="prev8" onclick="prevQuestion(8)">Назад</button>
+            <button id="next8" onclick="nextQuestion(8)" disabled>Далее</button>
+        </div>
+    
+        <div id="question9" class="question hidden">
+            <h2>Девятый вопрос</h2>
+            <p>Хотели бы вы когда-нибудь выйти замуж (жениться)?</p>
+            <ul>
+                <li><input type="radio" name="q9" value="4">1. Нет, никогда</li>
+                <li><input type="radio" name="q9" value="0">2. Да, обязательно</li>
+                <li><input type="radio" name="q9" value="1">3. Только с деловой целью</li>
+                <li><input type="radio" name="q9" value="3">4. Когда мне будет скучно</li>
+            </ul>
+            <button id="prev9" onclick="prevQuestion(9)">Назад</button>
+            <button id="next9" onclick="nextQuestion(9)" disabled>Далее</button>
+        </div>
+        <div id="question10" class="question hidden">
+            <h2>Десятый вопрос</h2>
+            <p>Из следующих видов деятельности, в какой вы бы хотели преуспеть?</p>
+            <ul>
+                <li><input type="radio" name="q10" value="4">1. Телефон и интернет</li>
+                <li><input type="radio" name="q10" value="0">2. Преподавание и консультирование</li>
+                <li><input type="radio" name="q10" value="1">3. Разработка бизнес-стратегий</li>
+                <li><input type="radio" name="q10" value="3">4. Решение сложных проблем</li>
+            </ul>
+            <form method="POST"> {% csrf_token %}
+                <input type="hidden" id="result-message-input" name="result" value="">
+                <input type="hidden" id="result-score-input" name="score" value="">
+                <button id="prev10" onclick="prevQuestion(10)">Назад</button>
+               <button id="calculate-score" onclick="calculateTotalScore()">Результат</button>
+            </form>
+        </div>
+
+    
+        <!-- Прогресс-бар -->
+        <div id="progress-bar"></div>
+
+    
+
+    <!-- Umumiy natijani hisoblash tugmasi -->
+    
+
+    <!-- JavaScript kodi -->
+    
+    <script>
+        let currentQuestion = 1;
+        let totalScore = 0;
+
+        function nextQuestion(questionNumber) {
+            document.getElementById(`question${questionNumber}`).classList.add('hidden');
+            questionNumber++;
+            document.getElementById(`question${questionNumber}`).classList.remove('hidden');
+            currentQuestion = questionNumber;
+
+            if (currentQuestion === 1) {
+                document.getElementById('prev1').disabled = true;
+            } else {
+                document.getElementById('prev1').disabled = false;
+            }
+
+            if (currentQuestion === 9) {
+                document.getElementById('calculate-score').classList.remove('hidden');
+                document.getElementById(`next${currentQuestion}`).disabled = true;
+            } else {
+                document.getElementById('calculate-score').classList.add('hidden');
+            }
+        }
+
+        function prevQuestion(questionNumber) {
+            document.getElementById(`question${questionNumber}`).classList.add('hidden');
+            questionNumber--;
+            document.getElementById(`question${questionNumber}`).classList.remove('hidden');
+            currentQuestion = questionNumber;
+
+            if (currentQuestion === 1) {
+                document.getElementById('prev1').disabled = true;
+            } else {
+                document.getElementById('prev1').disabled = false;
+            }
+
+            if (currentQuestion === 9) {
+                document.getElementById('calculate-score').classList.remove('hidden');
+                document.getElementById(`next${currentQuestion}`).disabled = true;
+            } else {
+                document.getElementById('calculate-score').classList.add('hidden');
+            }
+        }
+
+        const radioButtons = [
+            document.querySelectorAll('input[name="q1"]'),
+            document.querySelectorAll('input[name="q2"]'),
+            document.querySelectorAll('input[name="q3"]'),
+            document.querySelectorAll('input[name="q4"]'),
+            document.querySelectorAll('input[name="q5"]'),
+            document.querySelectorAll('input[name="q6"]'),
+            document.querySelectorAll('input[name="q7"]'),
+            document.querySelectorAll('input[name="q8"]'),
+            document.querySelectorAll('input[name="q9"]'),
+            document.querySelectorAll('input[name="q10"]')
+        ];
+
+        radioButtons.forEach((buttons, index) => {
+            buttons.forEach((radio) => {
+                radio.addEventListener('change', () => {
+                    document.getElementById(`next${index + 1}`).disabled = false;
+                });
+            });
+        });
+
+        function calculateTotalScore() {
+            totalScore = 0;
+
+            totalScore += calculateQuestionScore('q1');
+            totalScore += calculateQuestionScore('q2');
+            totalScore += calculateQuestionScore('q3');
+            totalScore += calculateQuestionScore('q4');
+            totalScore += calculateQuestionScore('q5');
+            totalScore += calculateQuestionScore('q6');
+            totalScore += calculateQuestionScore('q7');
+            totalScore += calculateQuestionScore('q8');
+            totalScore += calculateQuestionScore('q9');
+            totalScore += calculateQuestionScore('q10');
+   
+            let message = "";
+            if (totalScore >= 50) {
+                message = "На основании ваших ответов мы предложим вам направление Программное обеспечение.";
+            } else if (totalScore >= 30) {
+                message = "Мы предложим вам поле DataScinse на основе ваших ответов.";
+            } else if (totalScore >= 16) {
+                message = "Мы предложим вам поле FullStack на основе ваших ответов";
+            }
+            document.getElementById('result-message-input').value = message;
+            document.getElementById('result-score-input').value = totalScore;
+
+        // Submit the form
+            document.querySelector('form').submit();
+        }
+
+        function calculateQuestionScore(questionName) {
+            const selectedAnswer = document.querySelector(`input[name="${questionName}"]:checked`);
+            if (selectedAnswer) {
+                const selectedValue = parseInt(selectedAnswer.value);
+                return selectedValue;
+            }
+            return 0;
+
+        }
+
+
+    </script>
+</body>
+</html>
+</html>

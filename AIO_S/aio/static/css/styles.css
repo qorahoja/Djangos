@@ -1,0 +1,20 @@
+ body {
+             font-family: Arial, sans-serif; /* Standart font tanlash */
+             text-align: center;
+             background-color: #f2f2f2; /* Foydalanishga qo'shimcha rang */
+             padding: 20px;
+         }
+         h1 {
+             font-size: 2em; /* H1 matnni kichikroq qilish */
+             color: #333; /* Matn rangi */
+             margin-bottom: 20px; /* Matn pastdagi bo'shliqni o'rnatish */
+         }
+         a {
+             font-size: 1.5em; /* Havolalarni kichikroq qilish */
+             text-decoration: none;
+             color: #0078d4; /* Havola rangi */
+             margin: 0 10px; /* Havolalar o'rtasidagi masofa */
+         }
+         .btn {
+             margin-top: 20px; /* Tugma ustiga bo'sh joy qo'shish */
+         }
